@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kvitter</title>
+        
+        <link rel="stylesheet" href="{% static "theme/style.css" %}">
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div id="page_container">
+            <header>
+                <h1>Kvitter</h1>
+                {% if user.is_authenticated %}
+                <div id="user_details">
+                    <small>User details will be found here</small>
+                </div>
+                {% endif %}
+            </header>
+            
+            <div id="content_container">
+                <main>
+                    {% block pagecontent %}
+                    {% endblock %}
+                </main>
+            </div>
+            
+            <footer>
+                <small>&copy; Made by Henrik Sekkelsten, at Høgskolen i Østfold</small>
+            </footer>
+        </div>
+    </body>
+</html>
