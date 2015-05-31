@@ -32,7 +32,12 @@ def user_register(request):
         user.first_name = request.POST.get('firstname')
         user.last_name = request.POST.get('lastname')
         user.set_password(request.POST.get('password'))
-        user.save()
         
-        context['register_successfull'] = True
+        if User.objects.filter(username=user.username).exists():
+            context['register_unsuccessfull'] = True
+        
+        else:
+            user.save()
+            context['register_successfull'] = True
+        
         return render(request, 'theme/frontpage.html', context)

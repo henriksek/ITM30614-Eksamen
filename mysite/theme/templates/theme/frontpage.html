@@ -42,6 +42,9 @@
             {% if register_successfull %}
                 <div class="alert alert-success" role="alert">User successfully created</div>
             {% endif %}
+            {% if register_unsuccessfull %}
+                <div class="alert alert-danger" role="alert">Username allready taken!</div>
+            {% endif %}
             
             <form method="post" action="/useraccounts/register/">
                 {% csrf_token %}
