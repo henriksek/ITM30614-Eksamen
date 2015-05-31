@@ -15,7 +15,13 @@
     <section id="user_auth">
         <div>
             <h3>Log in:</h3>
-            <form method="post">
+            
+            {% if login_failed %}
+                <div class="alert alert-danger" role="alert">Login failed. Please try again!</div>
+            {% endif %}
+            
+            <form method="post" action="/useraccounts/login/">
+                {% csrf_token %}
                 <div class="form-group">
                     <input class="form-control" type="text" name="username" id="loginUsername" placeholder="Username">
                 </div>
@@ -32,7 +38,13 @@
         
         <div>
             <h3>Register new user</h3>
-            <form method="post">
+            
+            {% if register_successfull %}
+                <div class="alert alert-success" role="alert">User successfully created</div>
+            {% endif %}
+            
+            <form method="post" action="/useraccounts/register/">
+                {% csrf_token %}
                 <div class="form-group">
                     <input class="form-control" type="text" name="username" id="registerUsername" placeholder="Username">
                 </div>
