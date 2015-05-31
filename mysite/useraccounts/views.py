@@ -34,7 +34,10 @@ def user_register(request):
         user.set_password(request.POST.get('password'))
         
         if User.objects.filter(username=user.username).exists():
-            context['register_unsuccessfull'] = True
+            context['username_taken'] = True
+        
+        elif User.objects.filter(email=user.email).exists():
+            context['email_taken'] = True
         
         else:
             user.save()

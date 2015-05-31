@@ -40,10 +40,15 @@
             <h3>Register new user</h3>
             
             {% if register_successfull %}
-                <div class="alert alert-success" role="alert">User successfully created</div>
+                <div class="alert alert-success" role="alert">User successfully created!</div>
             {% endif %}
-            {% if register_unsuccessfull %}
+            
+            {% if username_taken %}
                 <div class="alert alert-danger" role="alert">Username allready taken!</div>
+            {% endif %}
+            
+            {% if email_taken %}
+                <div class="alert alert-danger" role="alert">Email allready taken!</div>
             {% endif %}
             
             <form method="post" action="/useraccounts/register/">
