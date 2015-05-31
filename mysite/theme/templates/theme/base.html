@@ -26,8 +26,16 @@
                 <h1>Kvitter</h1>
                 {% if user.is_authenticated %}
                 <div id="user_details">
-                    <small>User details will be found here</small>
-                    <a href="/useraccounts/logout/"><button class="btn btn-default">Log out</button></a>
+                    <nav class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.username}}<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Edit user details</a></li>
+                            <li><a href="#">Show likes</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li><a href="/useraccounts/logout/">Log out</a></li>
+                        </ul>
+                    </nav>
+                    <!--<a href="/useraccounts/logout/"><button class="btn btn-default">Log out</button></a>-->
                 </div>
                 {% endif %}
             </header>
