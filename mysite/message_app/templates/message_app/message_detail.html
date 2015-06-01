@@ -1,5 +1,13 @@
 {% extends 'theme/base.html' %}
 
+{% block extra_head %}
+    <meta property="og:title" content="Message from {{ message.created_by.username }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="kvitter.com" />
+    <meta property="og:description" content="{{ message.content }}" />
+    <meta property="og:url" content="kvitter.com{{ current_url }}" />
+{% endblock %}
+
 {% block pagecontent %}
     <div id="message_detail">
         <p>User: {{message.created_by.username}}</p>

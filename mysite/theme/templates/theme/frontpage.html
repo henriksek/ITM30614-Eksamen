@@ -10,8 +10,11 @@
                         {{msg.created_by.first_name}} {{msg.created_by.last_name}} 
                         <small>@{{msg.created_by.username}}</small>
                     </div>
-                    <div class="panel-body">{{msg.content}}</div>
-                    <div class="panel-footer"><a href="{% url 'message_detail' msg.id %}">Detail</a></div>
+                    <div class="panel-body">
+                        <p>{{msg.content}}</p>
+                        <hr />
+                        <a href="{% url 'message_detail' msg.id %}"><small>Details</small></a>
+                    </div>
                 </div>
             {% endfor %}
         </div>

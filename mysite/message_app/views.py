@@ -19,7 +19,13 @@ def new_message(request):
 def message_detail(request, message_id):
     message = Message.objects.get(pk=message_id)
     
-    context = {'message': message}
+    #user for facebook open graph
+    current_url = request.get_full_path()
+    
+    context = {
+        'message': message,
+        'current_url': current_url
+    }
     
     return render(request, 'message_app/message_detail.html', context)
     
