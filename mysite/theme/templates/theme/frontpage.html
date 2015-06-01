@@ -4,11 +4,12 @@
     <section id="message_listings">
         <div>
             <h3>All messages:</h3>
-            <p>Here all the messages will be displayed</p>
-            <!--<div class="panel panel-primary">
-                <div class="panel-heading">username</div>
-                <div class="panel-body">message content</div>
-            </div>-->
+            {% for msg in messages %}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">{{msg.created_by.first_name}} {{msg.created_by.last_name}} <small>@{{msg.created_by.username}}</small></div>
+                    <div class="panel-body">{{msg.content}}</div>
+                </div>
+            {% endfor %}
         </div>
     </section>
     {% if user.is_anonymous %}
