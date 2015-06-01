@@ -6,7 +6,7 @@ from message_app.models import Message
 # Create your views here.
 
 def frontpage(request):
-    messages = Message.objects.all()
+    messages = Message.objects.all().order_by('-created_datetime')
     
     page_nr = request.GET.get('page')
     paginator = Paginator(messages, 10)

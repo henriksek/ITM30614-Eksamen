@@ -1,0 +1,9 @@
+{% extends 'theme/base.html' %}
+
+{% block pagecontent %}
+    <div id="message_detail">
+        <p>User: {{message.created_by.username}}</p>
+        <p>Content: {{message.content}}</p>
+        <p>Created: {{message.created_datetime}}</p>
+    </div>
+{% endblock %}

@@ -15,3 +15,11 @@ def new_message(request):
         message.save()
     
     return redirect('frontpage')
+
+def message_detail(request, message_id):
+    message = Message.objects.get(pk=message_id)
+    
+    context = {'message': message}
+    
+    return render(request, 'message_app/message_detail.html', context)
+    

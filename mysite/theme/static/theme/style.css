@@ -68,3 +68,11 @@ header h1 {
 textarea {
     resize: none;
 }
+
+#message_detail {
+    width: 50%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid lightgrey;
+}
