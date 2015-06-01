@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^$', include('theme.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^useraccounts/', include('useraccounts.urls')),
+    url(r'^message_app/', include('message_app.urls')),
 ]

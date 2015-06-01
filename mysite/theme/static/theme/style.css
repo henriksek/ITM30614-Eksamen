@@ -61,3 +61,7 @@ header h1 {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
 }
+
+textarea {
+    resize: none;
+}
