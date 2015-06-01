@@ -23,9 +23,12 @@ header {
 
 footer {
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    border-top: 1px solid lightgrey;
+    text-align: right;
+    padding-right: 10px;
+    /*border-top: 1px solid lightgrey;
+    background-color: white;*/
 }
 
 #message_listings {
