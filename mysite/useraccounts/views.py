@@ -16,8 +16,8 @@ def user_login(request):
             return redirect('frontpage')
         
         else:
-            context['login_failed'] = True
-            return render(request, 'theme/frontpage.html', context)
+            #if login failed
+            return render(request, 'useraccounts/login_failed.html')
 
 def user_logout(request):
     logout(request)
@@ -35,15 +35,16 @@ def user_register(request):
         
         if User.objects.filter(username=user.username).exists():
             context['username_taken'] = True
+            return render(request, 'useraccounts/register_failed.html', context)
         
         elif User.objects.filter(email=user.email).exists():
             context['email_taken'] = True
+            return render(request, 'useraccounts/register_failed.html', context)
         
         else:
             user.save()
-            context['register_successfull'] = True
+            return render(request, 'useraccounts/register_success.html')
         
-        return render(request, 'theme/frontpage.html', context)
 
 def edit_user(request):
     context = {}

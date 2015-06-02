@@ -9,10 +9,20 @@
 {% endblock %}
 
 {% block pagecontent %}
-    <div id="message_detail">
-        <p>User: {{message.created_by.username}}</p>
-        <p>Content: {{message.content}}</p>
-        <p>Created: {{message.created_datetime}}</p>
+    <h3>Message detail:</h3>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h5>User:</h5>
+            {{message.created_by.first_name}} {{message.created_by.last_name}}
+            <small>@{{message.created_by.username}}</small>
+        </div>
+        <div class="panel-body">
+            <h5>Content:</h5>
+            <p>{{message.content}}</p>
+            <hr />
+            <p>Created: {{message.created_datetime}}</p>
+        </div>
     </div>
     <div id="message_likes">
         <h3>Likes:</h3>

@@ -37,10 +37,6 @@
         <div>
             <h3>Log in:</h3>
             
-            {% if login_failed %}
-                <div class="alert alert-danger" role="alert">Login failed. Please try again!</div>
-            {% endif %}
-            
             <form method="post" action="/useraccounts/login/">
                 {% csrf_token %}
                 <div class="form-group">
@@ -59,18 +55,6 @@
         
         <div>
             <h3>Register new user</h3>
-            
-            {% if register_successfull %}
-                <div class="alert alert-success" role="alert">User successfully created!</div>
-            {% endif %}
-            
-            {% if username_taken %}
-                <div class="alert alert-danger" role="alert">Username allready taken!</div>
-            {% endif %}
-            
-            {% if email_taken %}
-                <div class="alert alert-danger" role="alert">Email allready taken!</div>
-            {% endif %}
             
             <form method="post" action="/useraccounts/register/">
                 {% csrf_token %}
