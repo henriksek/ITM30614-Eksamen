@@ -1,0 +1,33 @@
+{% extends 'theme/base.html' %}
+
+{% block pagecontent %}
+    <div>
+        <h3>Edit details for: {{user.username}}</h3>
+        
+        {% if update_done %}
+        <div class="alert alert-success" role="alert">User updated!</div>
+        {% endif %}
+        
+        <form method="post" action="/useraccounts/edit_user/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="editMail">Email:</label>
+                <input class="form-control" type="email" name="email" id="editMail" value="{{user.email}}">
+            </div>
+            
+            <div class="form-group">
+                <label for="editFirstname">First name:</label>
+                <input class="form-control" type="text" name="firstname" id="editFirstname" value="{{user.first_name}}">
+            </div>
+            
+            <div class="form-group">
+                <label for="editLastname">Last name:</label>
+                <input class="form-control" type="text" name="lastname" id="editLastname" value="{{user.last_name}}">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'theme',
     'message_app',
+    'useraccounts',
 )
 
 MIDDLEWARE_CLASSES = (

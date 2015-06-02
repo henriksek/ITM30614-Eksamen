@@ -44,3 +44,18 @@ def user_register(request):
             context['register_successfull'] = True
         
         return render(request, 'theme/frontpage.html', context)
+
+def edit_user(request):
+    context = {}
+    if request.method == 'POST':
+        user = request.user
+        
+        user.email = request.POST.get('email')
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.save()
+        context['update_done'] = True
+    return render(request, 'useraccounts/edit_user.html', context)
+
+
+

@@ -17,7 +17,7 @@
     <div id="message_likes">
         <h3>Likes:</h3>
         {% for like in message.likes.all %}
-            <p>{{like.username}}</p>
+            <p>{{like.username}} likes this</p>
         {% endfor %}
     </div>
 {% endblock %}
