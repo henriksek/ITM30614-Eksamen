@@ -13,7 +13,12 @@
                     <div class="panel-body">
                         <p>{{msg.content}}</p>
                         <hr />
-                        <a href="{% url 'message_detail' msg.id %}"><small>Details</small></a>
+                        <a href="{% url 'message_detail' msg.id %}" role="button"><small>Details</small></a>
+                        {% if user.is_authenticated %}
+                        &middot;
+                        <a href="#" class="like_message" role="button" data-messageid="{{msg.id}}"><small>like/unlike</small></a>
+                        <small class="like_counter {{msg.id}}">{{msg.total_likes}}</small>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
